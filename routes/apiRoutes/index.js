@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { createNewNote, updateDb } = require('../../notes/notes');
 const { v4: uuidv4 } = require('uuid');
-const { notes } = require('../../develop/db/db.json');
+const notes = require('../../develop/db/db.json');
 
 router.get('/notes', (req, res) => {
   res.json(notes);
@@ -9,7 +9,7 @@ router.get('/notes', (req, res) => {
 
 router.post('/notes', (req, res) => {
   const newNote = { id: uuidv4(), ...req.body };
-  notes.push(newNote);
+  console.log(notes);
   createNewNote(newNote, notes);
   res.status(201).json(newNote);
 });

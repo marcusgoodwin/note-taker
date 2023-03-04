@@ -24,8 +24,8 @@ function createNewNote(body, notesArray) {
   notesArray.push(newNote);
   try {
     fs.writeFile(
-      path.join(__dirname, "../db/db.json"),
-      JSON.stringify({ notes: notesArray }, null, 2)
+      path.join(__dirname, "../develop/db/db.json"),
+      JSON.stringify(notesArray, null, 2)
     );
   } catch (error) {
     console.error(error);
